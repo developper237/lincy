@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Trésor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ffe4e1, #ffccf9);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #9923a8, #e23098);
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: bolder;
+            color: #2b2763;
+            font-family: 'Pacifico', cursive;
+        }
+
+        header p {
+            font-size: 2.2rem;
+            color: #2d0f99;
+            font-weight: bolder;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            margin: 15px;
+            width: 300px;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item video {
+            width: 100%;
+            border-radius: 15px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover video {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            font-size: 1.2rem;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: none;
+            z-index: 1000;
+        }
+
+        .modal video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .modal .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .overlay-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            z-index: 999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background:purple;
+            color: #fff;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        .logo{
+            height: 200px;
+            width: 200px;
+            border-radius: 100%;
+        }
+        h2{
+            text-align: center;
+
+        }
+        .msg{
+            margin-top: 20px;
+        }
+
+        /* Responsiveness for smaller screens */
+        @media (max-width: 768px) {
+            .gallery {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .gallery-item {
+                width: 90%;
+                margin: 10px 0;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            header p {
+                font-size: 0.9rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+            .logo{
+                height: 200px;
+                width: 200px;
+                border-radius: 100%;
+            }
+            #sendMessage{
+                margin-top: 10px; 
+                padding: 10px 20px;
+                 background-color: rgb(28, 31, 206); 
+                color: white; border: none;
+                 border-radius: 5px; 
+                 cursor: pointer;
+            }
+            #sendMessage:hover{
+                background: #f307c0;
+            }
+            #message{
+                width: 80%; padding: 10px;
+                 border-radius: 5px;
+                 border: 1px solid #ccc;
+                 resize: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="DALL·E 2024-12-28 11.57.36 - A beautiful and modern logo design featuring the name 'Lincy'. The logo should have a sleek and elegant font with a touch of creativity. Incorporate s.webp" alt="Logo Lincy" class="logo">
+        <h1>Bienvenue dans l'univers de Mon Trésor Lincy 🥰</h1>
+        <p>Quelques moments précieux à chérir pour toujours ❤️</p><hr>
+    </header>
+
+    <div class="gallery">
+        <div class="gallery-item" data-video="WhatsApp Vidéo 2024-12-17 à 11.04.25_675387d5.mp4">
+            <video src="WhatsApp Vidéo 2024-12-17 à 11.04.25_675387d5.mp4" muted></video>
+            <div class="overlay"><h2>Quand elle me séduit avec Son twerk😭❤️‍🔥❤️</h2></div>
+        </div>
+        <div class="gallery-item" data-video="WhatsApp Vidéo 2024-12-26 à 17.57.01_8d9ade9d.mp4">
+            <video src="WhatsApp Vidéo 2024-12-26 à 17.57.01_8d9ade9d.mp4" muted></video>
+            <div class="overlay"><h2>Quand Elle fait sa star 🥰😍</h2></div>
+        </div>
+        <div class="gallery-item" data-video="WhatsApp Vidéo 2024-12-21 à 10.47.02_735c65ad.mp4">
+            <video src="WhatsApp Vidéo 2024-12-21 à 10.47.02_735c65ad.mp4" muted></video>
+            <div class="overlay"><h2>Skiny comme j'aime 😭 avec petit cuii 🥰 </h2></div>
+        </div>
+        <div class="gallery-item" data-video="WhatsApp Vidéo 2024-12-26 à 17.57.02_478f5f75.mp4">
+            <video src="WhatsApp Vidéo 2024-12-26 à 17.57.02_478f5f75.mp4" muted></video>
+            <div class="overlay"><h2>Belle le feu sort 🥵🥰</h2></div>
+        </div>
+    </div>
+ 
+    <div class="modal" id="videoModal">
+        <span class="close" id="closeModal">&times;</span>
+        <video controls id="modalVideo"></video>
+    </div>
+
+    <div class="overlay-bg" id="overlayBg"></div>
+
+    <footer>
+   
+    <!-- Zone de texte pour envoyer un message -->
+    <div class="msg">
+        <h3>Si ce cadeau t'as plu, alors envoie moi un petit mot d'amour par whatsapp mon coeur</h3>
+        <textarea id="message" placeholder="Écris-moi un message ici ensuite clique sur envoyer" rows="4"></textarea>
+        <br>
+        <button id="sendMessage" >Envoyer</button>
+    </div><hr>
+    <p>Créé avec amour par Serge 💖 ton pain beurre au chocolat😭... n'oublie pas qu'on va se marier, aller aux USA et que tu dois accoucher jordan et Lincy🥰</p>
+    
+</footer>
+
+<script>
+    document.getElementById('sendMessage').addEventListener('click', function () {
+        // Récupérer le contenu du message
+        const message = document.getElementById('message').value.trim();
+
+        if (message === "") {
+            alert("Merci d'écrire un message avant d'envoyer !");
+            return;
+        }
+
+        // Encoder le message pour l'URL
+        const encodedMessage = encodeURIComponent(message);
+
+        // Remplacez 'votre_numero' par votre numéro WhatsApp au format international sans le signe "+"
+        const phoneNumber = "+237687999283";
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        // Ouvrir WhatsApp dans un nouvel onglet
+        window.open(whatsappUrl, '_blank');
+    });
+</script>
+
+
+    <script>
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const modal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const closeModal = document.getElementById('closeModal');
+        const overlayBg = document.getElementById('overlayBg');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const videoSrc = item.getAttribute('data-video');
+                modalVideo.src = videoSrc;
+                modal.style.display = 'block';
+                overlayBg.style.display = 'block';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            overlayBg.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = '';
+        });
+
+        overlayBg.addEventListener('click', () => {
+            modal.style.display = 'none';
+            overlayBg.style.display = 'none';
+            modalVideo.pause();
+            modalVideo.src = '';
+        });
+    </script>
+</body>
+</html>
